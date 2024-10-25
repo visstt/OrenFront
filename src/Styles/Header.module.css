@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .header {
   max-width: 100%;
 }
@@ -23,11 +27,19 @@ ul {
 }
 li {
   list-style-type: none;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media (max-width: 450px) {
   .headerContainer {
+    max-width: 100%;
     margin: 2% 0 0 2%;
+    justify-content: left;
+  }
+  li {
+    font-size: 16px;
+  }
+  ul {
+    gap: 20px;
   }
 }
