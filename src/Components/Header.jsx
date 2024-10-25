@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/Header.module.css";
+import styles from "./Header.module.css";
 import logo from "./logo.png";
 
 export default function Header() {
@@ -10,17 +10,17 @@ export default function Header() {
           <img src={logo} alt="logo" />
         </div>
         <div className={styles.nav}>
-          <ul>
-            <li>
+          <ul className={styles.ulHeader}>
+            <li className={styles.liHeader}>
               <a href="#">Главная</a>
             </li>
-            <li>
+            <li className={styles.liHeader}>
               <a href="#">Блог</a>
             </li>
-            <li>
+            <li className={styles.liHeader}>
               <a href="#">Маршруты</a>
             </li>
-            <li>
+            <li className={styles.liHeader}>
               <a href="#">Игра</a>
             </li>
           </ul>

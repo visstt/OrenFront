@@ -1,0 +1,23 @@
+.Section2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.TextBlock h2 {
+  font-size: 10px;
+  color: #3d4f9f;
+}
+.TextBlock h1 {
+  font-size: 36px;
+  color: #3d4f9f;
+  font-weight: 300;
+}
+
+.TextBlock li {
+  font-size: 15px;
+  color: #8d96bd;
+}
+.ImgBlock{
+    
+}

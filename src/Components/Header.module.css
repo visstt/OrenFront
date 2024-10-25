@@ -23,12 +23,12 @@ a {
   text-decoration: none;
   color: black;
 }
-ul {
+.ulHeader {
   display: flex;
   flex-direction: row;
   gap: 20%;
 }
-li {
+.liHeader {
   list-style-type: none;
   font-size: 18px;
 }
@@ -39,10 +39,10 @@ li {
     margin: 2% 0 0 2%;
     justify-content: left;
   }
-  li {
+  .liHeader {
     font-size: 16px;
   }
-  ul {
+  .ulHeader {
     gap: 20px;
   }
 }
