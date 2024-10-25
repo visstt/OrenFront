@@ -4,6 +4,9 @@
 }
 .header {
   max-width: 100%;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
+  -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
+  box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
 }
 
 .headerContainer {
@@ -11,7 +14,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  margin: 2% 10% 2% 10%;
+  padding: 2% 10% 2% 10%;
 }
 .logo {
   margin-right: 5%;
