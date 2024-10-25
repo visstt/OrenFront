@@ -22,7 +22,12 @@
 a {
   text-decoration: none;
   color: black;
+  transition: color 0.3s;
 }
+a:hover {
+  color: #5e81fe;
+}
+
 .ulHeader {
   display: flex;
   flex-direction: row;
