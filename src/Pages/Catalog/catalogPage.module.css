@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  background-color: #d8e0f7;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+.menuCategory {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+}
+.nameCategory {
+  margin: 0 0 15px;
+  font-size: 18px;
+}
+.labelName p {
+  margin: 10px 0;
+  font-size: 14px;
+}

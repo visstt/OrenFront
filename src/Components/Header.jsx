@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "../Styles/Header.module.css";
 import logo from "./logo.png";
+
 export default function Header() {
   return (
     <div className={styles.header}>
-      <div class={styles.headerContainer}>
-        <div class={styles.logo}>
+      <div className={styles.headerContainer}>
+        <div className={styles.logo}>
           <img src={logo} alt="logo" />
         </div>
-        <div class={styles.nav}>
+        <div className={styles.nav}>
           <ul>
             <li>
               <a href="#">Главная</a>
