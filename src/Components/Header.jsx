@@ -11,18 +11,18 @@ export default function Header() {
           <img src={logo} alt="logo" />
         </div>
         <div className={styles.nav}>
-          <ul>
-            <li>
-              <a href="#">Главная</a>
-            </li>
-            <li>
-              <a href="#">Блог</a>
-            </li>
-            <li>
-              <a href="#">Маршруты</a>
+          <ul className={styles.ulHeader}>
+            <li className={styles.liHeader}>
+              <Link to="/">Главная</Link>
             </li>
             <li className={styles.liHeader}>
-              <a href="#">Игра</a>
+              <Link to="#">Блог</Link>
+            </li>
+            <li className={styles.liHeader}>
+              <Link to="/catalog">Маршруты</Link>
+            </li>
+            <li className={styles.liHeader}>
+              <Link to="#">Игра</Link>
             </li>
           </ul>
         </div>
