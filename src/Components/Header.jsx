@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import logo from "./logo.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -10,14 +11,14 @@ export default function Header() {
           <img src={logo} alt="logo" />
         </div>
         <div className={styles.nav}>
-          <ul className={styles.ulHeader}>
-            <li className={styles.liHeader}>
+          <ul>
+            <li>
               <a href="#">Главная</a>
             </li>
-            <li className={styles.liHeader}>
+            <li>
               <a href="#">Блог</a>
             </li>
-            <li className={styles.liHeader}>
+            <li>
               <a href="#">Маршруты</a>
             </li>
             <li className={styles.liHeader}>
