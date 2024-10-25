@@ -19,8 +19,14 @@ export default function Catalog() {
               </label>
             </form>
           </div>
-          <div className={`${styles.range} ${styles.menuCategory}`}></div>
-          <div className={`${styles.place} ${styles.menuCategory}`}></div>
+          <div className={`${styles.range} ${styles.menuCategory}`}>
+            <h3 className={styles.nameCategory}>Длительность</h3>
+            <form action="#"></form>
+          </div>
+          <div className={`${styles.place} ${styles.menuCategory}`}>
+            <h3 className={styles.nameCategory}>Дата поездки</h3>
+            <form action="#"></form>
+          </div>
           <div className={styles.buttons}></div>
         </div>
       </div>

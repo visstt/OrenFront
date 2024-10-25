@@ -3,11 +3,12 @@
   background-color: #d8e0f7;
   max-width: 1220px;
   margin: 0 auto;
+  position: relative;
 }
 .menuCategory {
   background-color: white;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .nameCategory {
   margin: 0 0 15px;
@@ -16,4 +17,15 @@
 .labelName p {
   margin: 10px 0;
   font-size: 14px;
+}
+.labelName input {
+  width: 100%;
+}
+.menu {
+  position: absolute;
+  width: 20%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

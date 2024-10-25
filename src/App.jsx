@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
       <Catalog />
-      <HomePage />
+      {/* <HomePage /> */}
     </>
   );
 }
