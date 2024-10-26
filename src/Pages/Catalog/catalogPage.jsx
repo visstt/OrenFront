@@ -119,6 +119,7 @@ export default function Catalog() {
             <CatalogItem
               head={"Село Угольное - Меловые горы"}
               range={4}
+              img={"public/Rectangle.png"}
             ></CatalogItem>
           </div>
         </div>
