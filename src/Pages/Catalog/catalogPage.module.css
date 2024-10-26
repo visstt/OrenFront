@@ -1,9 +1,38 @@
 .container {
   display: flex;
-  background-color: #d8e0f7;
+  flex-direction: column;
   max-width: 1220px;
   margin: 0 auto;
-  position: relative;
+}
+.sort {
+  width: 100%;
+  padding: 45px 0;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  grid-gap: 20px;
+}
+.sortBy {
+  width: 20%;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+.main {
+  display: flex;
+  grid-gap: 50px;
+}
+.menu {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
 }
 .menuCategory {
   background-color: white;
@@ -17,35 +46,15 @@
   -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
   box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
 }
-.nameCategory {
-  margin: 0;
-  font-size: 16px;
-}
 .categoryHead {
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
 }
-.dateForm {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 15px;
-}
-.labelName p {
-  margin: 0 0 10px;
-  font-size: 14px;
-}
-.dateInput {
-  width: 95%;
-  height: 40px;
-  padding: 0 5px;
-  font-size: 12px;
-  font-family: "Nunito";
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #f4f4f5;
+.nameCategory {
+  margin: 0;
+  font-size: 16px;
 }
 .labelName.checkbox {
   display: flex;
@@ -57,14 +66,6 @@
   width: 16px;
   aspect-ratio: 1;
 }
-.menu {
-  position: absolute;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  grid-gap: 10px;
-  margin: 15px 0 0;
-}
 .rangeForm {
   display: flex;
   flex-direction: column;
@@ -74,4 +75,15 @@
   display: flex;
   flex-direction: column;
   grid-gap: 15px;
+}
+.catalog {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+}
+@media (max-width: 1440px) {
+  .container {
+    max-width: 950px;
+  }
 }

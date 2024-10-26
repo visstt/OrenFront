@@ -1,0 +1,22 @@
+.iconWrapper {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
+}
+.info h2 {
+  font-size: 20px;
+}
+.hours,
+.advantage {
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-left: 25px;
+}
+.hours {
+  background-image: url(public/Vector.svg);
+}
+.advantage {
+  background-image: url(public/Vector1.svg);
+}
