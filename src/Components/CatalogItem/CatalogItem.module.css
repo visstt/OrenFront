@@ -3,8 +3,6 @@
   align-items: center;
   border-radius: 8px;
   background-color: white;
-  -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
-  -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
   box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
   scroll-snap-align: start;
 }
@@ -15,15 +13,15 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 50px;
 }
 
 .info {
-  padding: 0 25px;
+  padding: 10px 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  grid-gap: 10px;
-  max-height: 100%;
+  gap: 10px;
   height: 100%;
 }
 .info h2 {
@@ -33,7 +31,7 @@
   list-style-type: none;
   display: flex;
   align-items: center;
-  grid-gap: 20px;
+  gap: 20px;
 }
 .hours,
 .advantage {
@@ -53,13 +51,25 @@
   color: #778088;
   display: flex;
   align-items: center;
-  grid-gap: 5px;
+  gap: 5px;
 }
+
+/* Дополнительные стили для description и price */
+.description {
+  font-size: 14px;
+  color: #555;
+}
+.price {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+}
+
 @media (max-width: 800px) {
   .iconWrapper {
     flex-direction: column;
-    align-items: start;
-    grid-gap: 5px;
+    align-items: flex-start;
+    gap: 5px;
   }
   .info {
     padding: 15px;
@@ -77,10 +87,10 @@
   }
 }
 @media (max-width: 500px) {
-    .item{
-        flex-direction: column;
-    }
-    .preview{
-        width: 100%;
-    }
+  .item {
+    flex-direction: column;
+  }
+  .preview {
+    width: 100%;
+  }
 }

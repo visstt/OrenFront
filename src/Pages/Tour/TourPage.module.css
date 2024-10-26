@@ -1,0 +1,114 @@
+.Tour h1 {
+  font-size: 36px;
+  margin: 20px;
+  text-align: center;
+}
+
+.ContainerTour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.fichContainer {
+  margin-top: 5%;
+  background-color: white;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 20px;
+  width: 45%;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.text {
+  padding: 5%;
+}
+
+.block img {
+  width: 50px;
+  height: auto;
+  padding: 10px;
+}
+@media (max-width: 1024px) {
+  .Tour h1 {
+    font-size: 28px;
+  }
+
+  .fichContainer {
+    max-width: 800px;
+    padding: 0;
+  }
+
+  .block {
+    padding: 0;
+    margin: 5px;
+  }
+
+  .text {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .block img {
+    width: 40px;
+    padding: 5px;
+  }
+}
+@media (max-width: 768px) {
+  .Tour h1 {
+    font-size: 28px;
+  }
+
+  .fichContainer {
+    max-width: 600px;
+    padding: 0;
+  }
+
+  .block {
+    padding: 0;
+    margin: 5px;
+  }
+
+  .text {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .block img {
+    width: 40px;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Tour h1 {
+    font-size: 24px;
+    margin: 15px;
+  }
+  .block {
+    padding: 10px;
+  }
+
+  .text {
+    padding: 5px;
+  }
+
+  .block img {
+    width: 30px;
+  }
+}

@@ -1,0 +1,68 @@
+/* Основной контейнер слайдера */
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Большое изображение */
+.largeImage img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Контейнер миниатюр */
+.thumbnails {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Стиль миниатюр */
+.thumbnail {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.6;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+/* Активная миниатюра */
+.thumbnail.active,
+.thumbnail:hover {
+  opacity: 1;
+  border: 2px solid #000;
+}
+
+/* Media Query для планшетов и мобильных устройств */
+@media (max-width: 768px) {
+  .largeImage img {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .thumbnail {
+    width: 70px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .largeImage img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 38px;
+  }
+}

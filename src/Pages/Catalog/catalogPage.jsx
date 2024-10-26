@@ -1,41 +1,47 @@
-import styles from "./catalogPage.module.css";
 import React, { useState, useEffect, useRef } from "react";
+import styles from "./CatalogPage.module.css";
 import CatalogItem from "../../Components/CatalogItem/CatalogItem";
+import axios from "axios";
 
-export default function Catalog() {
-  const [tours, setTours] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(null);
+export default function CatalogPage() {
+  const [tours, setTours] = useState([]); // Все доступные туры
+  const [filteredTours, setFilteredTours] = useState([]); // Отфильтрованные туры
+  const [durationFilter, setDurationFilter] = useState(""); // Состояние фильтра по длительности
+
+  const [activeIndex, setActiveIndex] = useState(null); // хранит индекс активного аккордеона
   const contentRef = useRef(null);
-
   const handleToggle = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setActiveIndex(activeIndex === index ? null : index); // переключаем состояние
   };
-
+  // Функция для загрузки туров с сервера
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTours = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:8080/tours/getAllTours",
-          {
-            method: "GET",
-          }
+        const response = await axios.get(
+          "http://localhost:8080/tours/getAllTours"
         );
-
-        if (response.ok) {
-          const data = await response.json();
-          // Исключаем поле rateCount
-          const filteredData = data.map(({ rateCount, ...rest }) => rest);
-          setTours(filteredData);
-        } else {
-          console.error("Ошибка при загрузке данных:", response.statusText);
-        }
+        setTours(response.data); // Сохраняем полученные данные в состояние
+        setFilteredTours(response.data); // Изначально показываем все туры
       } catch (error) {
-        console.error("Ошибка при загрузке данных:", error);
+        console.error("Ошибка при загрузке туров:", error);
       }
     };
 
-    fetchData();
+    fetchTours();
   }, []);
+
+  // Функция для обработки изменения фильтра по длительности
+  const handleDurationChange = (e) => {
+    const value = e.target.value;
+    setDurationFilter(value);
+
+    if (value) {
+      const filtered = tours.filter((tour) => tour.time === parseInt(value));
+      setFilteredTours(filtered);
+    } else {
+      setFilteredTours(tours); // Если фильтр пустой, показываем все туры
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -56,7 +62,7 @@ export default function Catalog() {
               onClick={() => handleToggle(0)}
             >
               <h3 className={styles.nameCategory}>Длительность</h3>
-              <img src="public/ant-design_caret-down-outlined.svg" alt="" />
+              <img src="public\ant-design_caret-down-outlined.svg" alt="" />
             </div>
 
             <form
@@ -72,7 +78,70 @@ export default function Catalog() {
               }}
               ref={contentRef}
             >
-              {/* Filter options */}
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                0-3 часов
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                3-5 часов
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                5-7 часов
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Целый день(7+ часов)
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Многодневный
+              </label>
+            </form>
+          </div>
+          <div className={`${styles.place} ${styles.menuCategory}`}>
+            <div
+              className={styles.categoryHead}
+              onClick={() => handleToggle(1)}
+            >
+              <h3 className={styles.nameCategory}>Дата поездки</h3>
+              <img src="public\ant-design_caret-down-outlined.svg" alt="" />
+            </div>
+
+            <form
+              action="#"
+              className={styles.rangeForm}
+              style={{
+                height:
+                  activeIndex === 1
+                    ? `${contentRef.current.scrollHeight}px`
+                    : "0",
+                overflow: "hidden",
+                transition: "height 0.3s ease-in-out",
+              }}
+              ref={contentRef}
+            >
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Чёрный Отрог
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Меловые горы
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Каменное озеро
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Тугустемир
+              </label>
+              <label className={`${styles.labelName} ${styles.checkbox}`}>
+                <input type="checkbox" name="" />
+                Село Угольное
+              </label>
             </form>
           </div>
           <div className={styles.buttons}>
@@ -82,12 +151,14 @@ export default function Catalog() {
         </div>
 
         <div className={styles.catalog}>
-          {tours.map((tour, index) => (
+          {filteredTours.map((tour) => (
             <CatalogItem
-              key={index}
+              key={tour.id}
               name={tour.name}
               time={tour.time}
-              photo={tour.photo}
+              photo={`http://localhost:8080${tour.photoUrl}`}
+              description={tour.description}
+              rateCount={25}
             />
           ))}
         </div>
