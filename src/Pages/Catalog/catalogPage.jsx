@@ -67,7 +67,7 @@ export default function Catalog() {
               </label>
               <label className={`${styles.labelName} ${styles.checkbox}`}>
                 <input type="checkbox" name="" />
-                5-7 часов 
+                5-7 часов
               </label>
               <label className={`${styles.labelName} ${styles.checkbox}`}>
                 <input type="checkbox" name="" />
@@ -123,7 +123,10 @@ export default function Catalog() {
               </label>
             </form>
           </div>
-          <div className={styles.buttons}> </div>
+          <div className={styles.buttons}>
+            <button>Применить</button>
+            <button>Сбросить</button>
+          </div>
         </div>
       </div>
     </>

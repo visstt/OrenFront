@@ -70,3 +70,8 @@
   flex-direction: column;
   grid-gap: 15px;
 }
+.buttons {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
+}
