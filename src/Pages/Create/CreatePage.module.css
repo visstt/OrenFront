@@ -27,6 +27,9 @@
 }
 .miniPic .photoLabel {
   background-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .textField {
   display: grid;
@@ -35,7 +38,6 @@
   grid-gap: 15px;
 }
 .photoLabel p {
-  margin: 0 0 110px;
   font-size: 16px;
   color: #4e746d;
 }
@@ -73,6 +75,25 @@
   -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08) inset;
   box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08) inset;
 }
+.btnConfirm {
+  width: 100px;
+  padding: 15px;
+  background-color: #7bbcb0;
+  color: white;
+  font-family: "Nunito";
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px transparent solid;
+  transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+.btnConfirm:hover {
+  background-color: transparent;
+  color: #7bbcb0;
+  border: #7bbcb0 1px solid;
+}
+
 @media (max-width: 1440px) {
   .container {
     max-width: 1000px;

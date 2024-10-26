@@ -44,6 +44,10 @@
   height: auto;
   padding: 10px;
 }
+
+.ContainerTour p {
+  max-width: 80%;
+}
 @media (max-width: 1024px) {
   .Tour h1 {
     font-size: 28px;

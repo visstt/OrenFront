@@ -1,5 +1,5 @@
-import React from "react"
-import styles from "./CreatePage.module.css"
+import React from "react";
+import styles from "./CreatePage.module.css";
 
 export default function CreatePage() {
   return (
@@ -45,9 +45,17 @@ export default function CreatePage() {
               id=""
               className={styles.textArea}
             />
+            <input
+              placeholder="Добавьте время маршрута"
+              type="text"
+              name=""
+              id=""
+              className={styles.textInput}
+            />
           </div>
         </div>
+        <button className={styles.btnConfirm}>Добавить</button>
       </div>
     </>
-  )
+  );
 }
