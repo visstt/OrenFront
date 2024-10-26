@@ -24,6 +24,20 @@
   font-weight: 300;
   margin-bottom: 5%;
 }
+.buttonHome {
+  background-color: #5789f4;
+  color: white;
+  border: none;
+  padding: 13px;
+  font-family: Nunito;
+  font-weight: bold;
+  margin: 20px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+.buttonHome:hover {
+  background-color: #405ea1;
+}
 
 .TextBlock li {
   font-size: 15px;
@@ -49,7 +63,7 @@
 }
 @media (max-width: 500px) {
   .TextBlock h1 {
-    font-size: 20px;
+    font-size: 23px;
     max-width: 300px;
   }
   .TextBlock li {
