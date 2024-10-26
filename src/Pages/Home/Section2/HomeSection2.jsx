@@ -17,10 +17,11 @@ export default function HomeSection2() {
           <li>Видеогид маршрутов</li>
           <li>Игра “Активный турист”</li>
         </ul>
+        <button className={styles.buttonHome}>Маршруты &#10148;</button>
       </div>
       <div className={styles.ImgBlock}>
-        <img src={photo} alt="people" className={styles.photo1}/>
-        <img src={photo2} alt="people"  className={styles.photo2}/>
+        <img src={photo} alt="people" className={styles.photo1} />
+        <img src={photo2} alt="people" className={styles.photo2} />
       </div>
     </div>
   );
