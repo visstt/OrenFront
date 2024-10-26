@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./HomeSection2.module.css";
 import photo from "./photoSection2.png";
 import photo2 from "./photoSection2.2.png";
+import { Link } from "react-router-dom";
 export default function HomeSection2() {
   return (
     <div className={styles.Section2}>
@@ -17,7 +18,9 @@ export default function HomeSection2() {
           <li>Видеогид маршрутов</li>
           <li>Игра “Активный турист”</li>
         </ul>
-        <button className={styles.buttonHome}>Маршруты &#10148;</button>
+        <Link to="/catalog">
+          <button className={styles.buttonHome}>Маршруты &#10148;</button>
+        </Link>
       </div>
       <div className={styles.ImgBlock}>
         <img src={photo} alt="people" className={styles.photo1} />
