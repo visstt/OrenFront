@@ -128,6 +128,36 @@ export default function Catalog() {
               img={"public/Rectangle.png"}
               rateCount={539}
             />
+            <CatalogItem
+              head={"Село Угольное - Меловые горы"}
+              range={4}
+              img={"public/Rectangle.png"}
+              rateCount={539}
+            />
+            <CatalogItem
+              head={"Село Угольное - Меловые горы"}
+              range={4}
+              img={"public/Rectangle.png"}
+              rateCount={539}
+            />
+            <CatalogItem
+              head={"Село Угольное - Меловые горы"}
+              range={4}
+              img={"public/Rectangle.png"}
+              rateCount={539}
+            />
+            <CatalogItem
+              head={"Село Угольное - Меловые горы"}
+              range={4}
+              img={"public/Rectangle.png"}
+              rateCount={539}
+            />
+            <CatalogItem
+              head={"Село Угольное - Меловые горы"}
+              range={4}
+              img={"public/Rectangle.png"}
+              rateCount={539}
+            />
           </div>
         </div>
       </div>

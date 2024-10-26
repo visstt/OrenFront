@@ -6,6 +6,7 @@
   -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
   -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
   box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.08);
+  scroll-snap-align: start;
 }
 .preview {
   width: 150px;
