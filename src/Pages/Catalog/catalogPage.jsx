@@ -20,6 +20,7 @@ export default function Catalog() {
             <option value=""></option>
           </select>
         </div>
+
         <div className={styles.main}>
           <div className={styles.menu}>
             <div className={`${styles.range} ${styles.menuCategory}`}>
@@ -111,8 +112,8 @@ export default function Catalog() {
               </form>
             </div>
             <div className={styles.buttons}>
-              <button>Применить</button>
-              <button>Сбросить</button>
+              <button className={styles.button}>Применить</button>
+              <button className={styles.button}>Сбросить</button>
             </div>
           </div>
           <div className={styles.catalog}>

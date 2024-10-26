@@ -55,3 +55,32 @@
   align-items: center;
   grid-gap: 5px;
 }
+@media (max-width: 800px) {
+  .iconWrapper {
+    flex-direction: column;
+    align-items: start;
+    grid-gap: 5px;
+  }
+  .info {
+    padding: 15px;
+    height: auto;
+  }
+  .info h2 {
+    font-size: 16px;
+  }
+  .hours,
+  .advantage {
+    font-size: 14px;
+  }
+  .rateCount {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+    .item{
+        flex-direction: column;
+    }
+    .preview{
+        width: 100%;
+    }
+}
