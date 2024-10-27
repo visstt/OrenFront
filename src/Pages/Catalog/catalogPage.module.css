@@ -91,7 +91,7 @@
     color 0.3s ease-in-out;
 }
 .button:hover {
-  background-color: transparent;
+  background-color: white;
   color: #7bbcb0;
   border: #7bbcb0 1px solid;
 }

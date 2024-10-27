@@ -9,10 +9,12 @@ const MapComponent = () => {
     const ymaps = window.ymaps;
 
     const initMap = () => {
-      const map = new ymaps.Map(mapRef.current, {
-        center: [59.9343, 30.3351], // Центр карты (Санкт-Петербург)
-        zoom: 10,
-      });
+      if (mapRef.current) {
+        const map = new window.ymaps.Map(mapRef.current, {
+          center: [59.9343, 30.3351],
+          zoom: 10,
+        });
+      }
 
       // Обработчик клика по карте
       map.events.add("click", (event) => {
@@ -49,9 +51,7 @@ const MapComponent = () => {
       script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
       script.async = true;
       script.onload = () => {
-        if (window.ymaps) {
-          window.ymaps.ready(initMap);
-        }
+        window.ymaps.ready(initMap);
       };
       document.head.appendChild(script);
     }
@@ -67,7 +67,7 @@ const MapComponent = () => {
     <div>
       <h1>Построение маршрута на Яндекс.Картах</h1>
       <div ref={mapRef} style={{ width: "100%", height: "500px" }} />
-      {points.length > 0 && (
+      {/* {points.length > 0 && (
         <div>
           <h2>Добавленные точки:</h2>
           {points.map((point, index) => (
@@ -76,7 +76,7 @@ const MapComponent = () => {
             </p>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
