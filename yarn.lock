@@ -418,6 +418,11 @@
   dependencies:
     "@swc/core" "^1.7.26"
 
+"@yandex/ymaps3-types@^1.0.15147272":
+  version "1.0.15147272"
+  resolved "https://registry.yarnpkg.com/@yandex/ymaps3-types/-/ymaps3-types-1.0.15147272.tgz#56790fa9afeac28554b45fd718d4bc7a411c193a"
+  integrity sha512-l/Ogmc1BBs/637gme+1bn6aa9oyzvLrRw0Ho/zaKF93xe/FngKPks8bj6yDnj9WcoE7Pi4XiF2Z/HYG7M8ihwA==
+
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
