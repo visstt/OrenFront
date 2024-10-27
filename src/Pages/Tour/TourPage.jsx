@@ -9,12 +9,14 @@ import spray from "./spray.svg";
 import watch from "./watch.svg";
 
 export default function TourPage() {
-  const { id } = useParams(); // Достаем id из параметров маршрута
+  const { id } = useParams();
   const [tour, setTour] = useState(null);
   const [images, setImages] = useState([]);
+  const [phone, setPhone] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   useEffect(() => {
-    // Получение информации о туре
     const fetchTour = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/tours/${id}`);
@@ -24,7 +26,6 @@ export default function TourPage() {
       }
     };
 
-    // Получение изображений тура
     const fetchImages = async () => {
       try {
         const response = await axios.get(
@@ -33,7 +34,6 @@ export default function TourPage() {
         const imageUrls = response.data.map(
           (image) => `http://localhost:8080/${image.photoUrl}`
         );
-        console.log("Полученные URL изображений:", imageUrls); // Логирование URL изображений
         setImages(imageUrls);
       } catch (error) {
         console.error("Error fetching images:", error);
@@ -44,12 +44,41 @@ export default function TourPage() {
     fetchImages();
   }, [id]);
 
-  if (!tour) return <p>Loading...</p>;
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    setSubmissionMessage("");
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append("phone", phone);
+      formData.append("fullName", fullName);
+      formData.append("tour", tour?.name);
+
+      const response = await axios.post(
+        "http://localhost:8080/tours/record",
+        formData,
+        {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        }
+      );
+
+      if (response.status === 200) {
+        setSubmissionMessage("Заявка успешно отправлена!");
+        setPhone("");
+        setFullName("");
+      }
+    } catch (error) {
+      console.error("Ошибка при отправке заявки:", error);
+      setSubmissionMessage("Не удалось отправить заявку. Попробуйте позже.");
+    }
+  };
+
+  if (!tour) return <p>Загрузка данных...</p>;
 
   return (
     <div className={styles.Tour}>
       <h1>{tour.name}</h1>
-      <Slider images={images} /> {/* Отображение слайдера с изображениями */}
+      <Slider images={images} />
       <div className={styles.ContainerTour}>
         <div className={styles.fichContainer}>
           <div className={styles.block}>
@@ -86,6 +115,36 @@ export default function TourPage() {
 
         <h1>Описание</h1>
         <p>{tour.description}</p>
+
+        <h2 className={styles.fomH2}>Остались вопросы? С вами свяжутся в близжайшее время</h2>
+        <form onSubmit={handleFormSubmit} className={styles.form}>
+          <label>
+            Номер телефона:
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              className={styles.input}
+            />
+          </label>
+          <label>
+            ФИО:
+            <input
+              type="text"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+              className={styles.input}
+            />
+          </label>
+          <button type="submit" className={styles.submitButton}>
+            Отправить заявку
+          </button>
+        </form>
+        {submissionMessage && (
+          <p className={styles.message}>{submissionMessage}</p>
+        )}
       </div>
     </div>
   );
