@@ -9,6 +9,10 @@ const MyMapComponent = () => {
     setPoints((prevPoints) => [...prevPoints, coords]);
   };
 
+  const handlePlacemarkClick = (index) => {
+    setPoints((prevPoints) => prevPoints.filter((_, i) => i !== index));
+  };
+
   const sendRouteToServer = () => {
     if (points.length < 2) {
       alert("Добавьте хотя бы две точки для маршрута!");
@@ -35,7 +39,15 @@ const MyMapComponent = () => {
         style={{ width: "100%", height: "500px" }}
       >
         {points.map((point, index) => (
-          <Placemark key={index} geometry={point} />
+          <Placemark
+            key={index}
+            geometry={point}
+            onClick={() => handlePlacemarkClick(index)}
+            options={{
+              preset: "islands#blueCircleDotIcon",
+              iconColor: "#0000FF",
+            }}
+          />
         ))}
         {points.length > 1 && (
           <Polyline
