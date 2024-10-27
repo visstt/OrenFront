@@ -16,7 +16,7 @@ export default function Header() {
               <Link to="/">Главная</Link>
             </li>
             <li className={styles.liHeader}>
-              <Link to="#">Блог</Link>
+              <Link to="/blog">Блог</Link>
             </li>
             <li className={styles.liHeader}>
               <Link to="/catalog">Маршруты</Link>

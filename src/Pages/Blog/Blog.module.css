@@ -1,0 +1,21 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  margin-top: 3%;
+}
+
+p {
+  text-align: center;
+
+  padding: 10px;
+  max-width: 800px;
+}
+.post {
+  margin-top: 2%;
+  background-color: white;
+  border-radius: 10px;
+}
