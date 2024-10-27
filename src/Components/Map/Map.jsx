@@ -1,84 +1,90 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const MapComponent = () => {
+const MapWithRoute = () => {
   const mapRef = useRef(null);
-  const [points, setPoints] = useState([]); // Массив для хранения точек маршрута
-  const [route, setRoute] = useState(null); // Хранение маршрута
+  const [routePoints, setRoutePoints] = useState([]);
 
   useEffect(() => {
-    const ymaps = window.ymaps;
+    const ymapsScript = document.createElement("script");
+    ymapsScript.src =
+      "https://api-maps.yandex.ru/2.1/?apikey=d6d405e7-1289-4a56-a33d-bf41fa4cf919&lang=ru_RU";
+    ymapsScript.async = true;
 
-    const initMap = () => {
-      if (mapRef.current) {
-        const map = new window.ymaps.Map(mapRef.current, {
-          center: [59.9343, 30.3351],
-          zoom: 10,
-        });
-      }
-
-      // Обработчик клика по карте
-      map.events.add("click", (event) => {
-        const coords = event.get("coords"); // Получаем координаты клика
-        setPoints((prevPoints) => {
-          const newPoints = [...prevPoints, coords]; // Добавляем координаты в массив точек
-
-          // Если у нас уже есть две точки, строим маршрут
-          if (newPoints.length === 2) {
-            const userRoute = new ymaps.routing.UserRoute(newPoints);
-            if (route) {
-              map.geoObjects.remove(route); // Удаляем предыдущий маршрут, если он существует
-            }
-            map.geoObjects.add(userRoute);
-            setRoute(userRoute);
-          }
-          return newPoints;
-        });
-
-        // Добавляем метку на карту
-        const placemark = new ymaps.Placemark(coords, {
-          balloonContent: `Точка: ${coords}`,
-        });
-        map.geoObjects.add(placemark);
-      });
+    ymapsScript.onload = () => {
+      window.ymaps.ready(initMap);
     };
 
-    // Проверка на загрузку Яндекс.Карт
-    if (window.ymaps) {
-      initMap();
-    } else {
-      // Загружаем скрипт Яндекс.Карт
-      const script = document.createElement("script");
-      script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
-      script.async = true;
-      script.onload = () => {
-        window.ymaps.ready(initMap);
-      };
-      document.head.appendChild(script);
-    }
+    document.head.appendChild(ymapsScript);
 
     return () => {
-      if (mapRef.current) {
-        mapRef.current.innerHTML = ""; // Очистка карты при размонтировании
-      }
+      document.head.removeChild(ymapsScript);
     };
-  }, [points, route]);
+  }, []);
+
+  const initMap = () => {
+    const map = new window.ymaps.Map(mapRef.current, {
+      center: [55.76, 37.64], // Москва
+      zoom: 10,
+    });
+
+    map.events.add("click", (event) => {
+      const coords = event.get("coords");
+      setRoutePoints((prev) => {
+        const newPoints = [...prev, coords];
+
+        // Если у нас уже есть 2 или более точек, строим маршрут
+        if (newPoints.length > 1) {
+          const userRoute = new window.ymaps.Route(newPoints);
+          map.geoObjects.removeAll();
+          map.geoObjects.add(userRoute);
+        }
+
+        return newPoints;
+      });
+    });
+  };
+
+  const handleSendRoute = () => {
+    const points = routePoints.map((point) => ({
+      latitude: point[0],
+      longitude: point[1],
+    }));
+
+    fetch("https://yourserver.com/api/routes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ route: points }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Route sent successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending route:", error);
+      });
+  };
 
   return (
     <div>
-      <h1>Построение маршрута на Яндекс.Картах</h1>
+      <h1>Строительство маршрутов на Яндекс.Картах</h1>
       <div ref={mapRef} style={{ width: "100%", height: "500px" }} />
-      {/* {points.length > 0 && (
+      <button onClick={handleSendRoute} disabled={routePoints.length < 2}>
+        Отправить маршрут на сервер
+      </button>
+      {routePoints.length > 0 && (
         <div>
           <h2>Добавленные точки:</h2>
-          {points.map((point, index) => (
+          {routePoints.map((point, index) => (
             <p key={index}>
               Точка {index + 1}: {point.join(", ")}
             </p>
           ))}
         </div>
-      )} */}
+      )}
     </div>
   );
 };
 
-export default MapComponent;
+export default MapWithRoute;
