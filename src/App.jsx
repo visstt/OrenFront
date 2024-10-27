@@ -5,6 +5,7 @@ import Catalog from "./Pages/Catalog/catalogPage";
 import HomePage from "./Pages/Home/HomePage";
 import TourPage from "./Pages/Tour/TourPage";
 import CreatePage from "./Pages/Create/CreatePage";
+import Admin from "./Pages/Admin/Admin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/tours/:id" element={<TourPage />} />
         <Route path="/create" element={<CreatePage />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

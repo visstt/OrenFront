@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CreatePage.module.css";
 import axios from "axios";
-
+import MapComponent from "../../Components/Map/Map";
 export default function CreatePage() {
   const [mainImage, setMainImage] = useState(null);
   const [miniImages, setMiniImages] = useState(Array(6).fill(null));
@@ -143,6 +143,7 @@ export default function CreatePage() {
       <button className={styles.btnConfirm} onClick={handleSubmit}>
         Добавить
       </button>
+      <MapComponent/>
     </div>
   );
 }
