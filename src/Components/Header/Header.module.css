@@ -20,6 +20,9 @@
 .logo {
   margin-right: 5%;
 }
+.logo img {
+  width: 80%;
+}
 a {
   text-decoration: none;
   color: black;
@@ -50,5 +53,8 @@ a:hover {
   }
   .ulHeader {
     gap: 20px;
+  }
+  .logo img {
+    width: 30px;
   }
 }

@@ -27,9 +27,13 @@
 }
 .miniPic .photoLabel {
   background-size: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 .textField {
   display: grid;

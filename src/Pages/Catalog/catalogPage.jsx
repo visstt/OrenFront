@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./CatalogPage.module.css";
 import CatalogItem from "../../Components/CatalogItem/CatalogItem";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function CatalogPage() {
   const [tours, setTours] = useState([]); // Все доступные туры
@@ -42,7 +43,16 @@ export default function CatalogPage() {
       setFilteredTours(tours); // Если фильтр пустой, показываем все туры
     }
   };
+  const truncateDescription = (description, maxLength) => {
+    if (description.length <= maxLength) return description;
 
+    const truncated = description.substring(0, maxLength);
+    const lastSpaceIndex = truncated.lastIndexOf(" ");
+
+    return lastSpaceIndex > 0
+      ? truncated.substring(0, lastSpaceIndex) + "..."
+      : truncated + "...";
+  };
   return (
     <div className={styles.container}>
       <div className={styles.sort}>
@@ -149,15 +159,15 @@ export default function CatalogPage() {
             <button className={styles.button}>Сбросить</button>
           </div>
         </div>
-
         <div className={styles.catalog}>
           {filteredTours.map((tour) => (
             <CatalogItem
               key={tour.id}
+              id={tour.id}
               name={tour.name}
               time={tour.time}
               photo={`http://localhost:8080${tour.photoUrl}`}
-              description={tour.description}
+              description={truncateDescription(tour.description, 100)}
               rateCount={25}
             />
           ))}
